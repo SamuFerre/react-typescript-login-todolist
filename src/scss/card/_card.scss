@@ -1,0 +1,17 @@
+@use '../base/variables' as v;
+.card {
+    margin: 0 auto;
+    padding: 5rem;
+    background-color: v.$white;
+    max-width: 45rem;
+    height: 50rem;
+    &__content{
+        
+    }
+    &__links{
+        
+    }
+    &__link{
+
+    }
+}

@@ -1,0 +1,80 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+.todos-form {
+    width: 50rem;
+    margin: -15rem auto;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    @include m.respond(phone) {
+        margin-top: -35rem;
+        grid-template-rows: repeat(3, 1fr);
+        width: 90%;
+    }
+    @include m.respond(tab-land) {
+        margin-top: -20rem;
+        width: 60%;
+        max-width: 50rem;
+    }
+    
+    &__label {
+        display: block;
+        color: v.$white;
+        font-size: 2rem;
+        font-weight: v.$bold;
+        grid-column: 1 / 5;
+        @include m.respond(phone) {
+            grid-column: 1 / 5;
+            text-align: center;
+        }
+    }
+    &__input {
+        grid-column: 1 / 4;
+        display: block;
+        width: 100%;
+        font: inherit;
+        font-size: 1.5rem;
+        padding: .8rem;
+        border-radius: 4px;
+        background-color: lighten(v.$grey, 15%);
+        border: none;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+        &:focus:invalid{
+            border-bottom: 4px solid rgb(204, 3, 3);
+        }
+        &:focus{
+            outline-width: 0;
+            border: none;
+            border-bottom: 4px solid rgb(0, 104, 0);
+        }
+        
+        @include m.respond(phone) {
+            grid-column: 1 / 5;
+        }
+    }
+    &__button {
+        background-color: v.$tertiary;
+        border: none;
+        color: v.$black;
+        font-size: 1.3rem;
+        padding: 0.5rem 1.5rem;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all .3s ease-in-out;
+
+        &:hover {
+          background-color: darken(v.$tertiary, 10%);
+          @include m.shadow;
+        }
+        &:active{
+            transform: scale(.9);
+            @include m.shadow;
+        }
+        @include m.respond(phone) {
+            grid-row: 3/4;
+            grid-column: 1 / 5;
+        }
+    }
+}

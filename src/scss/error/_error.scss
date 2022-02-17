@@ -1,0 +1,39 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+.error-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__title{
+        font-size: 2.3rem;
+        max-width: 50%;
+        text-align: center;
+        color: red;
+        margin-bottom: 3rem;
+    }
+    &__button{
+        background-color: v.$tertiary;
+        border: none;
+        color: v.$black;
+        font-size: 2rem;
+        font-weight: v.$bold;
+        padding: 0.5rem 1.5rem;
+        border-radius: 4px;
+        text-decoration: none;
+        cursor: pointer;
+        transition: all .3s ease-in-out;
+
+        &:hover {
+          background-color: darken(v.$tertiary, 10%);
+          @include m.shadow;
+        }
+        &:active{
+            transform: scale(.9);
+            @include m.shadow;
+        }
+        @include m.respond(phone) {
+            grid-row: 3/4;
+            grid-column: 1 / 5;
+        }
+    }
+}

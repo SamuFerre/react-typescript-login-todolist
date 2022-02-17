@@ -1,0 +1,51 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+.todos {
+    list-style: none;
+    background-color: v.$primary;
+    border-radius: 4px;
+    @include m.shadow;
+    margin: 25rem auto;
+    max-width: 50rem;
+    position: relative;
+    
+    @include m.respond(phone) {
+        width: 90%;
+        margin-top: 40rem;
+    }
+    @include m.respond(tab-port) {
+        width: 60%;
+        margin-top: 20rem;
+        max-width: 50rem;
+    }
+
+    &__item{
+        font-size: 1.8rem;
+        margin: 1rem 0;
+        @include m.shadow;
+        padding: 1.2rem;
+        background-color: v.$grey;
+        position: relative;
+        transition: all .2s ease-in-out;
+        &:hover{
+            cursor: pointer;
+            transform: scale(1.03);
+        }
+        &::after{
+            content: 'X';
+            z-index: 10;
+            color: v.$black;
+            position: absolute;
+            font-size: 1.2rem;
+            width: 1rem;
+            height: 1rem;
+            top: 0.5rem;
+            right: .5rem;
+        }
+        
+    }
+}
+.todo-card {
+    background-color: v.$white;
+    margin-top: 20rem auto;
+}
